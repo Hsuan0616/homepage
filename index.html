@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hsuan`s Home</title>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&Roboto:ital,wght@0,400;0,700;1,400&family=Yellowtail&display=swap"
+    rel="stylesheet">
+  <!-- Font-awesome CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css' />
+  <!-- Animate CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css' />
+  <!-- Main CSS File -->
+  <link rel=" stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <header class="header">
+      <!-- Mobile menu overlay -->
+      <div class="menu-overlay" :class="{'menu-overlay--active': toggleNavButton}"></div>
+      <!-- Start Navbar -->
+      <nav class="nav" :class="{'nav--top':screenOnTop}">
+        <div class="container">
+          <a href="javascript:;" class="nav-logo nav--color" :class="{'nav--topColor':screenOnTop}"
+            @click="scrollHandler('#home')"><img src="src/img/logo.png" alt="logo">Luca</a>
+          <button class="nav-button" @click="navHandler" v-show="showNavButton">
+            <i class="fas fa-times" v-show="toggleNavButton"></i>
+            <i class="fas fa-bars" v-show="!toggleNavButton"></i>
+          </button>
+          <ul class="nav-content" :class="{'nav-content--active':toggleNavButton}">
+            <li class="nav-content__item" @click="scrollHandler('#home')"><a href="javascript:;" class="nav--color"
+                :class="{'nav--topColor':screenOnTop}">HOME</a></li>
+            <li class="nav-content__item" @click="scrollHandler('#about')"><a href="javascript:;" class="nav--color"
+                :class="{'nav--topColor':screenOnTop}">ABOUT</a></li>
+            <li class="nav-content__item" @click="scrollHandler('#profolio')"><a href="javascript:;" class="nav--color"
+                :class="{'nav--topColor':screenOnTop}">PROTFOLIO</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+    </header>
+    <main>
+      <!-- Start Home -->
+      <div id="home" class="home">
+        <div class="home-jumbotron">
+          <div class="home-overlay"></div>
+          <div class="container">
+            <div class="home-intro">
+              <div class="home-intro__portrait">
+                <img src="src/img/portrait.jpg" alt="portrait">
+              </div>
+              <h2 class="home-intro__name">Luca Lin</h2>
+              <p class="home-intro__text">~ 前端初心者 ~</p>
+              <a href="javascript:;'" class="home-intro__btn" @click="scrollHandler('#about')">往下看看吧~</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Home -->
+      <!-- Start About -->
+      <div id="about" class="about" ref="aboutDiv">
+        <div class="about-inner ">
+          <div class="container clearfix">
+            <div class="title">
+              <i class="fas fa-address-book"></i>
+              <h2>ABOUT ME</h2>
+            </div>
+            <div class="about-selfie animate__animated" :class="{'animate__fadeInUp':showAbout}" style="opacity: 0;">
+              <img src="src/img/selfie.jpg" alt="selfie">
+            </div>
+            <div class="about-intro animate__animated" :class="{'animate__fadeInUp':showAbout}" style="opacity: 0;">
+              <h3>我是林子軒</h3>
+              <p>
+                畢業於朝陽科技大學和日本岩手縣立大學碩士班。從大四專題開始接觸網頁相關技術，此後便對前端的世界充滿興趣。喜歡也樂於嘗試新技術與事物，因此平常喜歡同時欣賞別人的前端作品並從中鑽研相關知識來提升自己的實力。
+              </p>
+              <ul>
+                <li><span>姓名 / Name：</span>林子軒 / Luca Lin</li>
+                <li><span>年齡 / Age：</span>26歲 / 26 years</li>
+                <li><span>現居 / Address：</span>台中市 / Taichung City 411, Taiwan</li>
+                <li><span>電話 / Phone：</span>0988750156</li>
+                <li><span>Email：</span>hew28744b@gmail.com</li>
+              </ul>
+              <div style="text-align: center;">
+                <a href="src/cv/Resume.pdf">我的履歷 / DOWNLOAD CV</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-skill">
+          <div class="container">
+            <div class="about-skill-title">
+              <i class="fas fa-torah"></i>
+              <h3>SKILLS</h3>
+            </div>
+            <div class="about-skill-content animate__animated" :class="{'animate__fadeInUp':showAbout}"
+              style="opacity: 0;">
+              <div class="about-skill-content__item">
+                <h4><i class="fas fa-angle-right"></i>核心技能</h4>
+                <ul>
+                  <li>語言類：HTML、CSS、JavaScript、php</li>
+                  <li>資料處理：AJAX、RESTful API</li>
+                  <li>響應式網頁設計：Flex</li>
+                </ul>
+              </div>
+              <div class="about-skill-content__item">
+                <h4><i class="fas fa-angle-double-right"></i>進階技能</h4>
+                <ul>
+                  <li>CSS 框架：Bootstrap、W3.CSS</li>
+                  <li>JS 框架：Vue.js、Vuex ( 學習中 )、Vue Router ( 學習中 )</li>
+                  <li>資料庫：MySQL</li>
+                </ul>
+              </div>
+              <div class="about-skill-content__item">
+                <h4><i class="fas fa-tools"></i>開發工具</h4>
+                <ul>
+                  <li>版本控制：Git</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End About -->
+      <!-- Start Profolio -->
+      <div id="profolio" class="profolio" ref="profolioDiv">
+        <div class="container">
+          <div class="title">
+            <i class="fas fa-history"></i>
+            <h2>PROFOLIO</h2>
+          </div>
+          <div class="profolio-content animate__animated" :class="{'animate__fadeInUp':showProfolio}"
+            style="opacity: 0;">
+            <div class="profolio-content__item" v-for="item of profolio" :key="item.id">
+              <div class="profolio-content__pic">
+                <img :src="`src/img/${item.id}.jpg`" />
+              </div>
+              <div class="profolio-content__text">
+                <h3>{{ item.title }}</h3>
+                <p v-html="item.text"></p>
+                <div style="text-align: center;">
+                  <a :href="item.link" class="profolio-content__btn"
+                    :class="{'profolio-content__btn--isDisabled':item.disabled }">{{ item.info }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Profolio -->
+      <!-- Start Footer -->
+      <footer class="footer">
+        <div class="copyright">
+          <div class="container">
+            Copyright © 2020 Luca Lin <br />
+            <span>建議使用 Chrome 瀏覽器獲得最佳體驗</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
+      <!-- BACK-TO-TOP-BUTTON -->
+      <div class="back-to-top-button" :class="{'back-to-top-button--display': !screenOnTop}">
+        <a href="javascript:;" @click="scrollHandler('#home')"><i class="fas fa-angle-double-up"></i></a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Vue.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+
+  <!-- Main Script -->
+  <script>
+    (function () {
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          windowTop: 0,
+          screenWidth: 0,
+          showAbout: false,
+          showProfolio: false,
+          toggleNavButton: false,
+          profolio: [
+            {
+              id: '0001',
+              title: '個人首頁',
+              text: `
+              <ul>
+                <li>2020 年，個人作品。</li>
+                <li>使用 Vue.js 以及原生 CSS 開發。</li>
+                <li>使用 Flex、Grid、float 等方式完成 RWD。</li>
+                <li>使用 Vue.js 來檢測瀏覽器視窗變化以及元素位置偵測</li>
+                <li>使用 GitHub 進行版本控制。</li>
+              </ul>
+                `,
+              link: 'javascript:;',
+              info: '請參考當前頁面',
+              disabled: true,
+            },
+            {
+              id: '0002',
+              title: 'Arduino自走車控制系統',
+              text: `
+              <ul>
+                <li>2016 年，大學畢業作品。</li>
+                <li>使用 jQuery、PHP、Arduino 及 MySQL。</li>
+                <li>使用 jQuery 和 PHP 來及時 Arduino 自走車的位置資訊，並將其計算成網頁中的 X 軸與 Y 軸來更改圖片顯示位置。</li>
+              </ul>
+                `,
+              link: 'http://163.17.20.49/AIT2016/paper/851.pdf',
+              info: '查看詳情',
+              disabled: false,
+            },
+            {
+              id: '0003',
+              title: '圖書借閱系統',
+              text: `
+              <ul>
+                <li>2016 年，台中某幼稚園委託開發。</li>
+                <li>使用 jQuery、PHP 及 MySQL。</li>
+                <li>使用 jQuery 處理手持式條碼機。</li>
+              </ul>
+                `,
+              link: 'https://hsuan0616.000webhostapp.com/portfolio/new-kid/home.php',
+              info: '查看詳情',
+              disabled: false,
+            },
+            {
+              id: '0004',
+              title: '訂單管理系統',
+              text: `
+              <ul>
+                <li>2017 年，台中某五金行委託開發。</li>
+                <li>使用 jQuery、Bootstrap、PHP 及 MySQL。</li>
+                <li>使用 Bootstrap 網格系統實現頁面 RWD</li>
+                <li>使用 AJAX + PHP 實現頁面資料即時更新。</li>
+                <li>目前版權為廠商所擁有故不開放測試。</li>
+              </ul>
+                `,
+              link: 'javascript:;',
+              info: '暫不公開',
+              disabled: true,
+            },
+            {
+              id: '0005',
+              title: '網路設備控制介面',
+              text: `
+              <ul>
+                <li>2019 年，畢業論文內使用</li>
+                <li>使用 jQuery 及 W3.CSS。</li>
+                <li>建立網路設備操作系統並搭配 RESTful API 進行設備控制。</li>
+                <li>需要搭配設備使用故不開放測試。</li>
+              </ul>
+                `,
+              link: 'javascript:;',
+              info: '暫不公開',
+              disabled: true,
+            },
+          ],
+        },
+        computed: {
+          screenOnTop: function () {
+            if (this.windowTop < 100) {
+              return true
+            }
+            return false
+          },
+          showNavButton: function () {
+            if (this.screenWidth < 993) {
+              return true
+            }
+            this.toggleNavButton = false
+            return false
+          }
+        },
+        mounted() {
+          // Screen size and position detection
+          const that = this
+          that.screenWidth = window.innerWidth
+          window.addEventListener("scroll", function () {
+            that.windowTop = window.scrollY
+          })
+          window.onresize = function () {
+            that.screenWidth = window.innerWidth
+          }
+
+          // Element position detection
+          const io = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+              if (entries[0].target.id == 'about') {
+                this.showAbout = true
+                io.unobserve(entries[0].target)
+              } else {
+                this.showProfolio = true
+                io.unobserve(entries[0].target)
+              }
+            }
+          }, {
+            root: null,
+            // if device-height is not enough, observe will not working
+            threshold: 0.2,
+          })
+          io.observe(this.$refs.aboutDiv)
+          io.observe(this.$refs.profolioDiv)
+        },
+        methods: {
+          navHandler() {
+            this.toggleNavButton = !this.toggleNavButton
+          },
+          // Firefox cannot use the behavior parameter correctly 
+          scrollHandler(targetElmnt) {
+            let elmnt = document.querySelector(targetElmnt)
+            elmnt.scrollIntoView({ behavior: 'smooth' })
+          }
+        }
+      })
+    })()
+  </script>
+</body>
+
+</html>
