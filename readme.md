@@ -10,3 +10,4 @@
 ## 已知問題：
 * Firefox and Safari cannot use scrollIntoViewOptions
 * IntersectionObserver will error due to the change of the window height
+* .home-intro__btn class will become blurred after the transform is executed
