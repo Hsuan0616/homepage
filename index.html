@@ -279,9 +279,11 @@
           // Screen size and position detection
           const that = this
           that.screenWidth = window.innerWidth
+
           window.addEventListener("scroll", function () {
             that.windowTop = window.scrollY
           })
+
           window.onresize = function () {
             that.screenWidth = window.innerWidth
           }
@@ -309,7 +311,7 @@
           navHandler() {
             this.toggleNavButton = !this.toggleNavButton
           },
-          // Firefox cannot use the behavior parameter correctly 
+          // Firefox and Safari cannot use the behavior parameter correctly 
           scrollHandler(targetElmnt) {
             let elmnt = document.querySelector(targetElmnt)
             elmnt.scrollIntoView({ behavior: 'smooth' })
