@@ -1,4 +1,8 @@
 {
+    "editor.tabSize": 2,
+    "editor.fontSize": 18,
+    "editor.wordWrap": "on",
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
     "liveSassCompile.settings.formats": [
         // This is Default.
         {
